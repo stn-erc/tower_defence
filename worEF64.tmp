@@ -1,0 +1,95 @@
+[gd_scene load_steps=12 format=3 uid="uid://crly0id1ndr4g"]
+
+[ext_resource type="PackedScene" uid="uid://kekc0eorukso" path="res://RESOURCES/ENTITY/enemy.tscn" id="1_6xdfe"]
+[ext_resource type="Texture2D" uid="uid://bmls7ckqv6r73" path="res://RESOURCES/BACKGROUND/clouds_mg_3.png" id="1_ayhqg"]
+[ext_resource type="Texture2D" uid="uid://dlto4q421vjpo" path="res://RESOURCES/BACKGROUND/bacground_dark.png" id="2_1fl8s"]
+[ext_resource type="Texture2D" uid="uid://hgqgf14vky5n" path="res://RESOURCES/BACKGROUND/moon.png" id="3_csth4"]
+[ext_resource type="Texture2D" uid="uid://b3kti81w276n5" path="res://RESOURCES/BACKGROUND/clouds_bg.png" id="4_3ckh0"]
+[ext_resource type="Texture2D" uid="uid://cfv2l6ertgci2" path="res://RESOURCES/BACKGROUND/glacial_mountains.png" id="5_m6mdy"]
+[ext_resource type="Texture2D" uid="uid://s22btwjk4j1g" path="res://RESOURCES/BACKGROUND/cloud_lonely.png" id="6_wf2vi"]
+[ext_resource type="Texture2D" uid="uid://bv2neypqp56ty" path="res://RESOURCES/BACKGROUND/clouds_mg_2.png" id="7_4v6kl"]
+[ext_resource type="PackedScene" uid="uid://dhypxoyml367o" path="res://RESOURCES/MAIN/lighthouse.tscn" id="9_2wxnu"]
+[ext_resource type="PackedScene" uid="uid://cqtkradr0srj7" path="res://RESOURCES/ENTITY/archer.tscn" id="10_w7ppf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wny5o"]
+size = Vector2(2560, 116)
+
+[node name="world" type="Node2D"]
+
+[node name="Background" type="TextureRect" parent="."]
+offset_top = -4.0
+offset_right = 2562.0
+offset_bottom = 1440.0
+texture = ExtResource("1_ayhqg")
+stretch_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="BacgroundDark" type="Sprite2D" parent="Background"]
+position = Vector2(1281.5, 722)
+scale = Vector2(3.99219, 4.01667)
+texture = ExtResource("2_1fl8s")
+metadata/_edit_lock_ = true
+
+[node name="Moon" type="Sprite2D" parent="Background"]
+position = Vector2(730, 263)
+scale = Vector2(4.22917, 4.0625)
+texture = ExtResource("3_csth4")
+metadata/_edit_lock_ = true
+
+[node name="CloudsBg" type="Sprite2D" parent="Background"]
+visible = false
+position = Vector2(1281, 726)
+scale = Vector2(4.00313, 4.01667)
+texture = ExtResource("2_1fl8s")
+metadata/_edit_lock_ = true
+
+[node name="CloudsBg2" type="Sprite2D" parent="Background"]
+position = Vector2(1279.5, 721.5)
+scale = Vector2(6.65885, 6.64352)
+texture = ExtResource("4_3ckh0")
+metadata/_edit_lock_ = true
+
+[node name="GlacialMountains" type="Sprite2D" parent="Background"]
+position = Vector2(1281.5, 723)
+scale = Vector2(6.66927, 6.73148)
+texture = ExtResource("5_m6mdy")
+metadata/_edit_lock_ = true
+
+[node name="CloudLonely" type="Sprite2D" parent="Background"]
+position = Vector2(473, 676)
+scale = Vector2(6.67448, 6.68519)
+texture = ExtResource("6_wf2vi")
+metadata/_edit_lock_ = true
+
+[node name="CloudsMg2" type="Sprite2D" parent="Background"]
+position = Vector2(1279.5, 727)
+scale = Vector2(6.67448, 6.66667)
+texture = ExtResource("7_4v6kl")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1280, 1382)
+shape = SubResource("RectangleShape2D_wny5o")
+metadata/_edit_lock_ = true
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+offset_top = 1369.0
+offset_right = 2560.0
+offset_bottom = 1440.0
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("9_2wxnu")]
+position = Vector2(218, 998)
+
+[node name="Enemy" parent="." instance=ExtResource("1_6xdfe")]
+visible = false
+position = Vector2(837, 1254)
+hp_max = 100
+defense = 0
+speed = 75
+
+[node name="AnimatedSprite2D" parent="." instance=ExtResource("10_w7ppf")]
+position = Vector2(754, 1292)
